@@ -18,22 +18,15 @@ function BookList() {
 }
 
 const Book = () => {
+  const title = 'O Peso do Pássaro Morto'
+  const author = 'Aline Bei'
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img src="https://images-na.ssl-images-amazon.com/images/I/71cxQSe2m0L.jpg" alt="book" width={200}/>
+      <h1>{title}</h1>
+      <h4>{author.toUpperCase()}</h4>
     </article>
   )
 }
-
-const Image = () => {
-  return (
-    <img src="https://images-na.ssl-images-amazon.com/images/I/71cxQSe2m0L.jpg" alt="book" width={200}/>
-  )
-}
-
-const Title = () => <h1>O Peso do Pássaro Morto</h1>;
-const Author = () => <h4>Aline Bei</h4>;
 
 ReactDOM.render(<BookList/>, document.getElementById('root'));
