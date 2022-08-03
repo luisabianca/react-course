@@ -41,6 +41,12 @@ body {
     margin-top: 0.25rem;
 }
 
+.description {
+    font-size: 14px;
+    padding-top: 10px;
+    color: #617d98;
+}
+
 @media screen and (min-width: 768px)  {
     .booklist {
         grid-template-columns: repeat(3, 1fr);
