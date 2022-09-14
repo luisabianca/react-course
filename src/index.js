@@ -1,4 +1,4 @@
-import  ReactDOM  from "react-dom";
+import { createRoot } from 'react-dom/client';
 
 //CSS
 import './index.css'
@@ -26,23 +26,25 @@ const books = [
   }
 ]
 
-const names = ['Bia', 'Marcelle', 'Bárbara', 'Eduardo'];
-const newNames = names.map((name) => {
-  return <h1>{name}</h1>
-}) 
 
 function BookList() {
   return (
     <div className="container">
       <h1 className="title__booklist">Minha Estante</h1>
       <section className="booklist">
-        {newNames}
+        {books.map((book) => {
+          return (
+            <Book book={book}></Book>
+          )
+        })}
       </section>
     </div>
   )
 }
 
-const Book = ({img, title, author}) => {
+const Book = (props) => {
+  const { img, title, author } = props.book;
+
   return (
     <article className="book">
       <img src={img} alt="book" width={200}/>
@@ -52,4 +54,6 @@ const Book = ({img, title, author}) => {
   )
 }
 
-ReactDOM.render(<BookList/>, document.getElementById('root'));
+const container = document.getElementById('app');
+const root = createRoot(container);
+root.render(<BookList/>);
