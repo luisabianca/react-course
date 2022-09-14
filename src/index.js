@@ -5,21 +5,25 @@ import './index.css'
 
 const books = [
   {
+   id: 1, 
    title: 'O Peso do Pássaro Morto',
    author: 'Aline Bei',
    img: 'https://images-na.ssl-images-amazon.com/images/I/71cxQSe2m0L.jpg'
   },
   {
+    id: 2,
    title: 'Flores para Algernon',
    author: 'Daniel Keyes',
    img: 'https://images-na.ssl-images-amazon.com/images/I/41tpztfvPML._SX330_BO1,204,203,200_.jpg'
   },
   {
+    id: 3,
    title: 'O incolor Tsukuru Tazaki e seus anos de peregrinação',
    author: 'Haruki Murakami',
    img: 'https://images-na.ssl-images-amazon.com/images/I/41TF1ikiiFL._SX318_BO1,204,203,200_.jpg'
   },
   {
+    id: 4,
    title: 'É assim que acaba',
    author: 'Colleen Hoover',
    img: 'https://images-na.ssl-images-amazon.com/images/I/91r5G8RxqfL.jpg'
@@ -34,7 +38,7 @@ function BookList() {
       <section className="booklist">
         {books.map((book) => {
           return (
-            <Book book={book}></Book>
+            <Book key={book.id} {...book}></Book>
           )
         })}
       </section>
@@ -42,9 +46,7 @@ function BookList() {
   )
 }
 
-const Book = (props) => {
-  const { img, title, author } = props.book;
-
+const Book = ({img, title, author}) => {
   return (
     <article className="book">
       <img src={img} alt="book" width={200}/>
